@@ -1,69 +1,73 @@
-# React + TypeScript + Vite
+=# Task Manager Frontend 🖥️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interface web para gerenciar tarefas, consumindo a API backend protegida por JWT.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias
 
-## Expanding the ESLint configuration
+- React 18
+- Vite
+- TypeScript
+- Fetch API
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📂 Estrutura do Projeto
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+```plaintext
+src/
+├── api/            # Funções para comunicação com a API
+├── components/     # Componentes reutilizáveis (Formulários, Listas etc)
+├── pages/          # Páginas principais da aplicação (Login, Dashboard)
+├── types/          # Tipos e interfaces TypeScript
+└── App.tsx         # Componente raiz
+````
+⚙️ Instalação e Execução
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    1. Clone este repositório ou copie os arquivos para seu projeto.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    2. Instale as dependências:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```plaintext
+npm install
+````
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    3. Execute a aplicação em modo de desenvolvimento:
+
+```plaintext
+npm run dev
+````
+    Acesse no navegador:
+
+http://localhost:5173
+
+🔧 Configuração da API
+
+    Certifique-se que a URL da API backend está configurada corretamente no arquivo src/api/index.ts (ou onde estiver sua camada de chamadas HTTP).
+
+Exemplo:
+
+export const API_URL = "http://localhost:8080";
+
+    O token JWT gerado no login deve ser armazenado no localStorage e enviado no header Authorization em todas as requisições protegidas.
+
+📌 Funcionalidades
+
+    Registro e login de usuário
+
+    Listagem, criação, edição e exclusão de tarefas
+
+    Proteção de rotas via token JWT
+
+    Feedback ao usuário sobre erros (ex: token inválido, falha na conexão)
+
+📖 Referências úteis
+
+    React Docs
+
+    Vite Docs
+
+    TypeScript Docs
+
+    Fetch API

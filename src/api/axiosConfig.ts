@@ -1,8 +1,8 @@
-// Configuração global do Axios com token JWT
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080", // backend Spring Boot
+  baseURL: "http://localhost:8080",
+  // withCredentials: true, // habilite se usar cookies (não obrigatório para JWT no header)
 });
 
 api.interceptors.request.use((config) => {

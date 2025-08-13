@@ -1,4 +1,3 @@
-// src/pages/Login.tsx
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import { login } from "../api/auth";
@@ -15,6 +14,7 @@ export default function Login() {
   async function onSubmit(data: FormData) {
     try {
       await login(data);
+      console.log("Email salvo:", localStorage.getItem("userEmail"));
       navigate("/dashboard");
     } catch (err) {
       alert("Credenciais inválidas ou erro no servidor.");
